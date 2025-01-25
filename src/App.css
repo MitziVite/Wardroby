@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  background: linear-gradient(40deg, #d0bdaf9b, #DA857B);
+  margin: 0; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.signIn-main-container {
+  width: 80%;
+  /* max-width: 600px; */
+  padding: 5%;
+  background: #D5CEC5;
+  box-shadow: 10px 11px 31px -11px rgba(0,0,0,0.75);
+  border-radius: 8px;
+  border: 1px solid white;
+  margin: 0 auto;
+}
+
+.signIn-container{
+  padding: 5px 50px 80%;
+  background: #D5CEC5;
+  box-shadow: 10px 11px 31px -11px rgba(0,0,0,0.75);
+  border-radius: 8px;
+  border: 1px solid white;
+}
+
+.signIn-container h1 {
+  color: #EEDBCF; /* Color principal */
+  text-shadow: 
+    -1px -1px 0 #DA857B,  
+    1px -1px 0 #DA857B,
+    -1px 1px 0 #DA857B,
+    1px 1px 0 #DA857B, /* Borde de las letras */
+    2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra negra */
+}
+
+.user-icon, .password-icon {
+  /* display: flex; */
+  /* width: 24px; */
+  /* height: 24px; */
+  /* margin-right: 8px; */
+}
+
+.username, .password {
+  /* flex: 1; */
+  /* padding: 10px; */
+  /* border: 1px solid #ccc; */
+  /* border-radius: 4px; */
+}
+
