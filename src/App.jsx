@@ -1,8 +1,6 @@
 import './App.css';
 import UserIcon from './assets/images/user.png';
 import PasswordIcon from './assets/images/password.png';
-// import FacebookIcon from './assets/images/facebook.png';
-// import GoogleIcon from './assets/images/google.png';
 import CloudIcon from './assets/images/cloud.png';
 import FlowerIcon from './assets/images/flower.png';
 import DotIcon from './assets/images/fill-dot-background.png';
@@ -95,7 +93,7 @@ function App() {
           <div className='social-media-square'>
 
           <LoginSocialFacebook
-            appId="1185813582892730"
+            appId={import.meta.env.VITE_FACEBOOK_APP_ID}
             onResolve={(response) => {
               console.log(response);
             }}
