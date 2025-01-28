@@ -7,7 +7,14 @@ import CloudIcon from './assets/images/cloud.png';
 import FlowerIcon from './assets/images/flower.png';
 import DotIcon from './assets/images/fill-dot-background.png';
 import EmptyCircle from './assets/images/empty-circle.png';
+// import { GoogleLogin } from '@react-oauth/google';
+// import { jwtDecode } from "jwt-decode";
+import { useGoogleLogin } from '@react-oauth/google';
+
 function App() {
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+  });
   return (
     <div className="login-page">
       <img className='clouds' src={CloudIcon} alt="cloud-icon" />
@@ -49,7 +56,19 @@ function App() {
           <img src={FacebookIcon} alt='Facebook Icon' className='facebook-icon' />
           </div>
           <div className='social-media-square'>
-          <img src={GoogleIcon} alt='Google Icon' className='google-icon' />
+          {/* <img src={GoogleIcon} alt='Google Icon' className='google-icon' /> */}
+          <button onClick={() => login()} style={{background:"none", border:"none"}}> {<img src={GoogleIcon} alt='Google Icon' className='google-icon' />}</button>
+          {/* <GoogleLogin
+            onSuccess={credentialResponse => {
+              const credentialResponseDecoded = jwtDecode(
+                credentialResponse.credential
+                );
+              console.log(credentialResponseDecoded);
+            }}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+            /> */}
           </div>
           </div>
           <p className='no-account'>Don&apos;t have an account? <a href='#'>Sign Up</a></p>
