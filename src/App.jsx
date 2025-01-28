@@ -1,21 +1,21 @@
 import './App.css';
 import UserIcon from './assets/images/user.png';
 import PasswordIcon from './assets/images/password.png';
-import FacebookIcon from './assets/images/facebook.png';
-import GoogleIcon from './assets/images/google.png';
+// import FacebookIcon from './assets/images/facebook.png';
+// import GoogleIcon from './assets/images/google.png';
 import CloudIcon from './assets/images/cloud.png';
 import FlowerIcon from './assets/images/flower.png';
 import DotIcon from './assets/images/fill-dot-background.png';
 import EmptyCircle from './assets/images/empty-circle.png';
-// import { GoogleLogin } from '@react-oauth/google';
-// import { jwtDecode } from "jwt-decode";
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+
+import { LoginSocialFacebook } from 'reactjs-social-login';
+import {  FacebookLoginButton } from "react-social-login-buttons";
 
 function App() {
-  const login = useGoogleLogin({
-    onSuccess: tokenResponse => console.log(tokenResponse),
-  });
   return (
+    // const [profile, setProfile] = useState(null);
     <div className="login-page">
       <img className='clouds' src={CloudIcon} alt="cloud-icon" />
       <img className='flowers' src={FlowerIcon} alt="flower-icon" />
@@ -53,12 +53,25 @@ function App() {
             </div> 
           <div className='social-media-icons'>
           <div className='social-media-square'>
-          <img src={FacebookIcon} alt='Facebook Icon' className='facebook-icon' />
+          {/* <img src={FacebookIcon} alt='Facebook Icon' className='facebook-icon' /> */}
+
+          <LoginSocialFacebook
+            appId="1185813582892730"
+            onResolve={(response) => {
+              console.log(response);
+              // setProfile(response.data);
+            }}
+            onReject={(error) => {
+              console.log(error);
+            }}
+            >
+            <FacebookLoginButton/>
+          </LoginSocialFacebook>
+
           </div>
           <div className='social-media-square'>
           {/* <img src={GoogleIcon} alt='Google Icon' className='google-icon' /> */}
-          <button onClick={() => login()} style={{background:"none", border:"none"}}> {<img src={GoogleIcon} alt='Google Icon' className='google-icon' />}</button>
-          {/* <GoogleLogin
+          <GoogleLogin
             onSuccess={credentialResponse => {
               const credentialResponseDecoded = jwtDecode(
                 credentialResponse.credential
@@ -68,7 +81,7 @@ function App() {
             onError={() => {
               console.log('Login Failed');
             }}
-            /> */}
+            />
           </div>
           </div>
           <p className='no-account'>Don&apos;t have an account? <a href='#'>Sign Up</a></p>
