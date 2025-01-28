@@ -13,7 +13,36 @@ import { jwtDecode } from "jwt-decode";
 import { LoginSocialFacebook } from 'reactjs-social-login';
 import {  FacebookLoginButton } from "react-social-login-buttons";
 
+import { useState } from 'react';
+
 function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setMessage(data.message);
+        console.log(data.user);
+      } else {
+        setMessage(data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('An error occurred');
+    }
+  };
+
   return (
     // const [profile, setProfile] = useState(null);
     <div className="login-page">
@@ -33,19 +62,30 @@ function App() {
       <div className="signIn-main-container">
         <div className="signIn-container">
         <h1>WARDROBY</h1>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="user-input-container">
               <img src={UserIcon} alt="User Icon" className="user-icon" />
-              <input className="username" placeholder="Username" />
+              <input
+                  className="username"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
 
           <div className='password-input-container'>
-          
             <img src={PasswordIcon} alt='Password Icon' className='password-icon' />
-          <input className='password' placeholder='Password' />
+            <input
+                  className='password'
+                  placeholder='Password'
+                  type='password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
           </div>
-          <p className='forgot-password'><a>Forgot password?</a></p>
+          <p className='forgot-password'><a href="#">Forgot password?</a></p>
           <button className='signIn-button'>Sign In</button>
+          {message && <p>{message}</p>}
           <div className="or-sign-with-container">
               <hr className="divider" />
               <p className="or-sign-with">Or sign in with</p>
@@ -53,13 +93,11 @@ function App() {
             </div> 
           <div className='social-media-icons'>
           <div className='social-media-square'>
-          {/* <img src={FacebookIcon} alt='Facebook Icon' className='facebook-icon' /> */}
 
           <LoginSocialFacebook
             appId="1185813582892730"
             onResolve={(response) => {
               console.log(response);
-              // setProfile(response.data);
             }}
             onReject={(error) => {
               console.log(error);
@@ -70,7 +108,7 @@ function App() {
 
           </div>
           <div className='social-media-square'>
-          {/* <img src={GoogleIcon} alt='Google Icon' className='google-icon' /> */}
+    
           <GoogleLogin
             onSuccess={credentialResponse => {
               const credentialResponseDecoded = jwtDecode(

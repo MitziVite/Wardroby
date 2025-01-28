@@ -135,6 +135,12 @@ body {
   font-size: 14px;
 }
 
+.forgot-password a {
+  color: var(--text-shadow-color);
+  text-decoration: none;
+  font-weight: 300;
+}
+
 .signIn-button {
   width: 100%;
   padding: 10px;
