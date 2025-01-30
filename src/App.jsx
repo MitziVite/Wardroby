@@ -8,7 +8,7 @@ import DotIcon from './assets/images/fill-dot-background.png';
 import EmptyCircle from './assets/images/empty-circle.png';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-import Home from './Home';
+import Home from './Components/Home';
 
 import { LoginSocialFacebook } from 'reactjs-social-login';
 import { FacebookLoginButton } from 'react-social-login-buttons';

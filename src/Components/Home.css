@@ -1,0 +1,107 @@
+.home-container {
+    background: #D0CAC3;
+    height: 100vh;
+    width: 100vw;
+}
+
+.home-container h1 {
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: center;
+}
+/* HEADER */
+
+.home-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.logo-white{
+    width: 15%;
+    height: 5%;
+    position: relative;
+}
+
+.user-logo{
+    width: 8%;
+    height: 3%;
+    position: relative;
+}
+
+/* CLASSIFICATIONS */
+
+.home-classifications {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  
+.home-classification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-classification button {
+    width: 60px;
+    height: 60px;
+    /* height: 100%; */
+    border-radius: 50%; /* Hacer el botón circular */
+    border: 1px solid var(--border-color);
+    background: var(--background-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 4%;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .home-classification button img {
+    width: 60%;
+    height: 60%;
+  }
+  
+  .home-classification p {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #333;
+    font-weight: 200;
+  }
+
+  .all-clothes img{
+    width: 80px;
+  }
+
+
+.all-clothes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    grid-template-rows: repeat(3, auto); /* Tres filas de altura automática */
+    /* gap: 10px; */
+    width: 100%;
+    /* padding: 20px; */
+  }
+  
+  .all-clothes-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .all-clothes-item img {
+    max-width: 100%;
+    height: auto;
+  }
+

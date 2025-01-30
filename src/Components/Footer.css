@@ -1,0 +1,22 @@
+.home-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #D0CAC3;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-footer-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .home-footer-item img {
+    width: 30px;
+    height: 30px;
+  }
