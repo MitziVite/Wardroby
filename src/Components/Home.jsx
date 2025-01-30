@@ -1,6 +1,4 @@
-// import React from 'react';
-import './Home.css';
-// import LogoBlack from './assets/images/logo-black.png';
+import '../styles/Home.css';
 import LogoWhite from '../assets/images/logo-white.png';
 import User from '../assets/images/user.png';
 import Tshirt from '../assets/images/t-shirt.png';
@@ -20,7 +18,7 @@ import JeansTest from '../assets/images/jeans-test.avif';
 import JeansTwo from '../assets/images/jeans-test-two.jpg';
 import SunglassesTest from '../assets/images/sunglasses-test.jpg';
 import EaringsTets from '../assets/images/earings-test.webp';
-import Footer from './Footer';
+import Footer from '../Components/Footer';
 
 
 function Home() {

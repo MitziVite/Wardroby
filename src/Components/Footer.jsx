@@ -1,5 +1,6 @@
 
-import './Footer.css';
+import '../styles/Footer.css';
+// import ClothesHanger from '../assets/images/clothes-hanger.png';
 import ClothesHanger from '../assets/images/clothes-hanger.png';
 import Star from '../assets/images/star.png';
 import Calendar from '../assets/images/calendar.png';
