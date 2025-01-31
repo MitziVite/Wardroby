@@ -2,6 +2,7 @@ import express from 'express';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import userRoutes from './routes/users.js';
 
 dotenv.config(); // Load environment variables from .env
 
@@ -23,11 +24,14 @@ let db;
 MongoClient.connect(MONGODB_URI)
   .then(client => {
     db = client.db('Wardroby');
+    app.locals.db = db; // Make the db accessible in the app
     console.log('✅ Connected to MongoDB');
   })
   .catch(err => console.error('❌ Error connecting to MongoDB:', err));
 
 // Routes
+app.use('/api/users', userRoutes);
+
 app.get('/', (req, res) => {
   res.send('Welcome to the Wardroby API!');
 });

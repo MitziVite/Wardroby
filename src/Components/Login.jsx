@@ -91,7 +91,6 @@ function Login() {
                 <div className='social-media-icons'>
                   <div className='social-media-square'>
                     <LoginSocialFacebook
-                      // appId="1185813582892730"
                       appId={import.meta.env.VITE_FACEBOOK_APP_ID}
                       onResolve={(response) => {
                         console.log(response);
